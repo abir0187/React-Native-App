@@ -7,11 +7,8 @@ export default function App() {
     return (
         <View style={styles.container}>
             <View>
-                <TextInput style={styles.textBox}>
+                <TextInput style={styles.textBox} />
 
-                </TextInput>
-            </View>
-            <View>
                 <Text>{outputText}</Text>
                 <Button title="Change text" onPress={() => {
                     setOutputText('The text bbbbb')

@@ -5,20 +5,15 @@ export default function App() {
     const [enteredGoal, setEnteredGoal] = useState('');
     const [allGoals, setAllGoals] = useState([]);
 
-
-    const goalInputHandler = (enteredText) => {
-      setEnteredGoal(enteredText);
-    };
-
     const handleGoals = () => {
+        console.log(allGoals);
         setAllGoals(currentGoals => [...currentGoals, enteredGoal]);
     };
-
 
     return (
         <View style={styles.container}>
             <View>
-                <TextInput style={styles.textBox} onChangeText={goalInputHandler} value={enteredGoal}/>
+                <TextInput style={styles.textBox} onChangeText={setEnteredGoal} value={enteredGoal}/>
                 <View style={{paddingTop: 5}}>
                     <Button title="Add Goals" onPress={handleGoals} />
                 </View>

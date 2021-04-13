@@ -1,25 +1,37 @@
 import React, {useState} from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
 
 export default function App() {
+    const [outputText, setOutputText] = useState('BBBB!');
 
-  const [outputText, setOutputText] = useState('AAAAA!');
+    return (
+        <View style={styles.container}>
+            <View>
+                <TextInput style={styles.textBox}>
 
-  return (
-      <View style={styles.container}>
-        <Text>{outputText}</Text>
-        <Button title="Change text" onPress={() => {
-          setOutputText('The text changed')
-        }}/>
-      </View>
-  );
+                </TextInput>
+            </View>
+            <View>
+                <Text>{outputText}</Text>
+                <Button title="Change text" onPress={() => {
+                    setOutputText('The text bbbbb')
+                }}/>
+            </View>
+            <View/>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    textBox: {
+        backgroundColor:'white',
+        borderWidth: 1,
+        width: 200
+    }
 });

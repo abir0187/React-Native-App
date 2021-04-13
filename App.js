@@ -6,7 +6,6 @@ export default function App() {
     const [allGoals, setAllGoals] = useState([]);
 
     const handleGoals = () => {
-        console.log(allGoals);
         setAllGoals(currentGoals => [...currentGoals, enteredGoal]);
     };
 
@@ -19,7 +18,7 @@ export default function App() {
                 </View>
 
                 <View>
-                    {allGoals.map((goal)=><Text>{goal}</Text>)}
+                    {allGoals.map((goal, index)=><Text key={index}>{goal}</Text>)}
                 </View>
             </View>
             <View/>

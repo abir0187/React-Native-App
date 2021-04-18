@@ -11,17 +11,16 @@ export default function App() {
 
     return (
         <View style={styles.container}>
-            <View>
+            <View style={styles.row}>
                 <TextInput style={styles.textBox} onChangeText={setEnteredGoal} value={enteredGoal}/>
-                <View style={{paddingTop: 5}}>
-                    <Button title="Add Goals" onPress={handleGoals} />
-                </View>
-
-                <View>
-                    {allGoals.map((goal, index)=><Text key={index}>{goal}</Text>)}
+                <View style={{paddingLeft: 5}}>
+                    <Button title="Add" onPress={handleGoals}/>
                 </View>
             </View>
-            <View/>
+
+            <View style={styles.column}>
+                {allGoals.map((goal, index) => <Text key={index}>{goal}</Text>)}
+            </View>
         </View>
     );
 }
@@ -34,8 +33,21 @@ const styles = StyleSheet.create({
     },
 
     textBox: {
-        backgroundColor:'white',
-        borderWidth: 1,
-        width: 200
+        backgroundColor: 'white',
+        borderBottomWidth: 1,
+        width: 150
+    },
+
+    row: {
+        flexDirection: 'row',
+        marginRight: 5
+    },
+
+    column: {
+        width: 200,
+        paddingTop: 5,
+        flexDirection: 'column',
+        textAlign: 'left'
     }
+
 });

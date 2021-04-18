@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Button, FlatList, StyleSheet, Text, TextInput, View} from 'react-native';
 
 export default function App() {
     const [enteredGoal, setEnteredGoal] = useState('');
     const [allGoals, setAllGoals] = useState([]);
 
     const handleGoals = () => {
-        setAllGoals(currentGoals => [...currentGoals, enteredGoal]);
+        setAllGoals(currentGoals => [...currentGoals, {key: Math.random().toString(), value: enteredGoal}]);
     };
 
     return (
@@ -18,9 +18,16 @@ export default function App() {
                 </View>
             </View>
 
-            <View style={styles.column}>
-                {allGoals.map((goal, index) => <Text key={index}>{goal}</Text>)}
-            </View>
+            <FlatList
+                style={styles.column}
+                data={allGoals}
+                renderItem={currentItem => (
+                    <View >
+                        <Text> {currentItem.item.value} </Text>
+                    </View>
+                )}
+            />
+
         </View>
     );
 }
@@ -35,7 +42,7 @@ const styles = StyleSheet.create({
     textBox: {
         backgroundColor: 'white',
         borderBottomWidth: 1,
-        width: 150
+        width: 200
     },
 
     row: {
@@ -44,7 +51,7 @@ const styles = StyleSheet.create({
     },
 
     column: {
-        width: 200,
+        width: 250,
         paddingTop: 5,
         flexDirection: 'column',
         textAlign: 'left'

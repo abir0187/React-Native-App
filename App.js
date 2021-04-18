@@ -22,7 +22,7 @@ export default function App() {
                 style={styles.column}
                 data={allGoals}
                 renderItem={currentItem => (
-                    <View >
+                    <View>
                         <Text> {currentItem.item.value} </Text>
                     </View>
                 )}
@@ -38,23 +38,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingTop: 40
     },
-
     textBox: {
         backgroundColor: 'white',
         borderBottomWidth: 1,
         width: 200
     },
-
     row: {
         flexDirection: 'row',
         marginRight: 5
     },
-
     column: {
         width: 250,
         paddingTop: 5,
         flexDirection: 'column',
         textAlign: 'left'
     }
-
 });
